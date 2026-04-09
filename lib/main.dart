@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'core/theme.dart';
 import 'widgets/navbar.dart';
+import 'widgets/hero_section.dart';
+import 'widgets/about_section.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Azril | Personal Portfolio',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.darkTheme, // Default to Dark Mode as per PRD
+      theme: AppTheme.darkTheme,
       home: const HomePage(),
     );
   }
@@ -54,28 +55,44 @@ class _HomePageState extends State<HomePage> {
         controller: _scrollController,
         child: Column(
           children: [
-            _buildSection(0, "Hero Section Placeholder", Colors.transparent),
-            _buildSection(1, "About Section Placeholder", Colors.transparent),
-            _buildSection(2, "Experience Section Placeholder", Colors.transparent),
-            _buildSection(3, "Portfolio Section Placeholder", Colors.transparent),
-            _buildSection(4, "Contact Section Placeholder", Colors.transparent),
+            // HERO SECTION
+            Container(
+              key: _sectionKeys[0],
+              child: HeroSection(
+                onPortfolioTap: () => _scrollToSection(3), // Index 3 is Portfolio
+                onContactTap: () => _scrollToSection(4),   // Index 4 is Contact
+              ),
+            ),
+            
+            // ABOUT SECTION
+            Container(
+              key: _sectionKeys[1],
+              child: const AboutSection(),
+            ),
+
+            // PLACEHOLDERS FOR REMAINING SECTIONS
+            _buildPlaceholderSection(2, "Experience Section Placeholder"),
+            _buildPlaceholderSection(3, "Portfolio Section Placeholder"),
+            _buildPlaceholderSection(4, "Contact Section Placeholder"),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildSection(int index, String title, Color color) {
+  Widget _buildPlaceholderSection(int index, String title) {
     return Container(
       key: _sectionKeys[index],
       height: MediaQuery.of(context).size.height,
       width: double.infinity,
-      color: color,
+      color: Colors.transparent,
       child: Center(
         child: Text(
           title,
-          style: Theme.of(context).textTheme.displayMedium,
-        ).animate().fadeIn(duration: 1.seconds).slideY(begin: 0.2, end: 0),
+          style: Theme.of(context).textTheme.displayMedium?.copyWith(
+            color: Colors.white24,
+          ),
+        ),
       ),
     );
   }
