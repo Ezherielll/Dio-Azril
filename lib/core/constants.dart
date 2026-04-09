@@ -74,4 +74,7 @@ Selain Flutter, saya juga memiliki minat mendalam di bidang Machine Learning dan
       githubUrl: "#",
     ),
   ];
+  static const String contactEmail = "azril@example.com";
+  static const String currentYear = "2026";
 }
+

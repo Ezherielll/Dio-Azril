@@ -5,6 +5,8 @@ import 'widgets/hero_section.dart';
 import 'widgets/about_section.dart';
 import 'widgets/experience_section.dart';
 import 'widgets/portfolio_section.dart';
+import 'widgets/contact_section.dart';
+import 'widgets/footer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -84,26 +86,15 @@ class _HomePageState extends State<HomePage> {
               child: const PortfolioSection(),
             ),
 
-            // CONTACT SECTION PLACEHOLDER (Index 4)
-            _buildPlaceholderSection(4, "Contact Section Placeholder"),
-          ],
-        ),
-      ),
-    );
-  }
+            // CONTACT SECTION (Index 4)
+            Container(
+              key: _sectionKeys[4],
+              child: const ContactSection(),
+            ),
 
-  Widget _buildPlaceholderSection(int index, String title) {
-    return Container(
-      key: _sectionKeys[index],
-      height: MediaQuery.of(context).size.height,
-      width: double.infinity,
-      color: Colors.transparent,
-      child: Center(
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.displayMedium?.copyWith(
-            color: Colors.white24,
-          ),
+            // FOOTER
+            const Footer(),
+          ],
         ),
       ),
     );
