@@ -83,23 +83,27 @@ class _ContactSectionState extends State<ContactSection> {
   }
 
   Widget _buildHeader(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "GET IN TOUCH",
-          style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                color: AppTheme.darkAccent,
-                letterSpacing: 2,
-              ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(top: 8),
-          height: 4,
-          width: 60,
-          color: AppTheme.darkAccent,
-        ),
-      ],
+    return Semantics(
+      header: true,
+      label: "Seksi Hubungi Saya",
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "GET IN TOUCH",
+            style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                  color: AppTheme.darkAccent,
+                  letterSpacing: 2,
+                ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 8),
+            height: 4,
+            width: 60,
+            color: AppTheme.darkAccent,
+          ),
+        ],
+      ),
     );
   }
 
@@ -119,7 +123,7 @@ class _ContactSectionState extends State<ContactSection> {
             context,
             controller: _emailController,
             label: "Email",
-            validator: (v) => (v?.isEmpty ?? true || !v!.contains('@')) ? "Email tidak valid" : null,
+            validator: (v) => ((v?.isEmpty ?? true) || !v!.contains('@')) ? "Email tidak valid" : null,
           ),
           const SizedBox(height: 20),
           _buildTextField(
@@ -133,16 +137,20 @@ class _ContactSectionState extends State<ContactSection> {
           SizedBox(
             width: double.infinity,
             height: 50,
-            child: ElevatedButton(
-              onPressed: _submitForm,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.darkAccent,
-                foregroundColor: Colors.black,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-              ),
-              child: const Text(
-                "KIRIM PESAN",
-                style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1),
+            child: Semantics(
+              button: true,
+              label: "Kirim Pesan Sekarang",
+              child: ElevatedButton(
+                onPressed: _submitForm,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppTheme.darkAccent,
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
+                child: const Text(
+                  "KIRIM PESAN",
+                  style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1),
+                ),
               ),
             ),
           ),
@@ -235,14 +243,18 @@ class _ContactSectionState extends State<ContactSection> {
   }
 
   Widget _buildSocialIcon(IconData icon) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: AppTheme.darkSurface,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: AppTheme.darkAccent.withOpacity(0.2)),
+    return Semantics(
+      button: true,
+      label: "Ikon Sosial",
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: AppTheme.darkSurface,
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: AppTheme.darkAccent.withOpacity(0.2)),
+        ),
+        child: Icon(icon, color: AppTheme.darkAccent, size: 20),
       ),
-      child: Icon(icon, color: AppTheme.darkAccent, size: 20),
     );
   }
 }

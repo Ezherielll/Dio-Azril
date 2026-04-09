@@ -18,15 +18,18 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: 80,
       backgroundColor: AppTheme.darkBackground.withOpacity(0.8),
       surfaceTintColor: Colors.transparent,
-      title: Padding(
-        padding: const EdgeInsets.only(left: 20),
-        child: Text(
-          AppConstants.name.toUpperCase(),
-          style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                letterSpacing: 4,
-                fontSize: 22,
-                color: AppTheme.darkAccent,
-              ),
+      title: Semantics(
+        label: "Logo: Azril Personal Portfolio",
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Text(
+            AppConstants.name.toUpperCase(),
+            style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                  letterSpacing: 4,
+                  fontSize: 22,
+                  color: AppTheme.darkAccent,
+                ),
+          ),
         ),
       ),
       actions: isMobile
@@ -70,26 +73,30 @@ class _NavBarItemState extends State<_NavBarItem> {
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
-      child: TextButton(
-        onPressed: widget.onTap,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              widget.title,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: _isHovered ? AppTheme.darkAccent : AppTheme.darkTextPrimary,
-                  ),
-            ),
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              height: 2,
-              width: _isHovered ? 20 : 0,
-              color: AppTheme.darkAccent,
-              margin: const EdgeInsets.only(top: 4),
-            ),
-          ],
+      child: Semantics(
+        button: true,
+        label: "Navigasi ke ${widget.title}",
+        child: TextButton(
+          onPressed: widget.onTap,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                widget.title,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: _isHovered ? AppTheme.darkAccent : AppTheme.darkTextPrimary,
+                    ),
+              ),
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                height: 2,
+                width: _isHovered ? 20 : 0,
+                color: AppTheme.darkAccent,
+                margin: const EdgeInsets.only(top: 4),
+              ),
+            ],
+          ),
         ),
       ),
     );
