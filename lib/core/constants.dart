@@ -1,3 +1,6 @@
+import '../models/experience.dart';
+import '../models/project.dart';
+
 class AppConstants {
   static const String name = "Azril";
   static const String tagline = "Flutter Developer | Creative Thinker";
@@ -32,4 +35,43 @@ Selain Flutter, saya juga memiliki minat mendalam di bidang Machine Learning dan
   static const String githubUrl = "https://github.com/Ezherielll";
   static const String linkedinUrl = "#";
   static const String twitterUrl = "#";
+
+  static const List<Experience> experiences = [
+    Experience(
+      period: "2024 - Sekarang",
+      title: "Junior Flutter Developer",
+      company: "TechCorp Indonesia",
+      description: "Bertanggung jawab atas pengembangan fitur baru pada aplikasi mobile e-commerce menggunakan Flutter dan optimasi performa UI.",
+    ),
+    Experience(
+      period: "2023 - 2024",
+      title: "Flutter Developer Intern",
+      company: "StartupInc Digital",
+      description: "Membantu tim back-end dalam integrasi API dan membangun dashboard internal perusahaan menggunakan Flutter Web.",
+    ),
+  ];
+
+  static const List<Project> projects = [
+    Project(
+      title: "Flodo Todo App",
+      description: "Aplikasi manajemen tugas harian yang fokus pada kesederhanaan dan produktivitas dengan fitur cloud sync.",
+      imageUrl: "assets/images/todo_app.png",
+      techStack: ["Flutter", "Firebase", "Riverpod"],
+      githubUrl: "https://github.com/Ezherielll",
+    ),
+    Project(
+      title: "E-Commerce Dashboard",
+      description: "Sistem manajemen inventaris dan analitik penjualan real-time untuk platform e-commerce.",
+      imageUrl: "assets/images/ecommerce.png",
+      techStack: ["Flutter Web", "Charts", "Python"],
+      liveUrl: "#",
+    ),
+    Project(
+      title: "ML Sentiment Analysis",
+      description: "Integrasi model Machine Learning untuk menganalisis sentimen ulasan pengguna secara otomatis.",
+      imageUrl: "assets/images/ml_analysis.png",
+      techStack: ["Python", "TensorFlow", "FastAPI"],
+      githubUrl: "#",
+    ),
+  ];
 }

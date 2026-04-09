@@ -3,6 +3,8 @@ import 'core/theme.dart';
 import 'widgets/navbar.dart';
 import 'widgets/hero_section.dart';
 import 'widgets/about_section.dart';
+import 'widgets/experience_section.dart';
+import 'widgets/portfolio_section.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,7 +57,7 @@ class _HomePageState extends State<HomePage> {
         controller: _scrollController,
         child: Column(
           children: [
-            // HERO SECTION
+            // HERO SECTION (Index 0)
             Container(
               key: _sectionKeys[0],
               child: HeroSection(
@@ -64,15 +66,25 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             
-            // ABOUT SECTION
+            // ABOUT SECTION (Index 1)
             Container(
               key: _sectionKeys[1],
               child: const AboutSection(),
             ),
 
-            // PLACEHOLDERS FOR REMAINING SECTIONS
-            _buildPlaceholderSection(2, "Experience Section Placeholder"),
-            _buildPlaceholderSection(3, "Portfolio Section Placeholder"),
+            // EXPERIENCE SECTION (Index 2)
+            Container(
+              key: _sectionKeys[2],
+              child: const ExperienceSection(),
+            ),
+
+            // PORTFOLIO SECTION (Index 3)
+            Container(
+              key: _sectionKeys[3],
+              child: const PortfolioSection(),
+            ),
+
+            // CONTACT SECTION PLACEHOLDER (Index 4)
             _buildPlaceholderSection(4, "Contact Section Placeholder"),
           ],
         ),
