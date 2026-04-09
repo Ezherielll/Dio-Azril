@@ -1,9 +1,6 @@
-# Azril | Personal Portfolio
+# Dio Azril | Personal Portfolio
 
 A premium, modern, and responsive personal portfolio website built with **Flutter Web**. This project showcases a professional journey, technical skills, and a curated project gallery.
-
-## 🚀 Live Demo
-[Coming Soon / Link to Repository]
 
 ## ✨ Features
 
@@ -62,4 +59,4 @@ flutter build web --release --web-renderer canvaskit
 ```
 
 ---
-Built with ❤️ by [Azril](https://github.com/Ezherielll)
+Built with ❤️ by [Dio Azril](https://github.com/Ezherielll)
