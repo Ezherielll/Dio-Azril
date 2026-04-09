@@ -94,30 +94,34 @@ class HeroSection extends StatelessWidget {
     final imageContent = Expanded(
       flex: isMobile ? 0 : 2,
       child: Center(
-        child: Container(
-          width: isMobile ? 280 : 400,
-          height: isMobile ? 280 : 400,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: AppTheme.darkAccent.withOpacity(0.5), width: 4),
-            image: const DecorationImage(
-              image: AssetImage(AppConstants.profileImageUrl),
-              fit: BoxFit.cover,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: AppTheme.darkAccent.withOpacity(0.15),
-                blurRadius: 60,
-                spreadRadius: 20,
+        child: Semantics(
+          label: "Foto Profil Azril",
+          image: true,
+          child: Container(
+            width: isMobile ? 280 : 400,
+            height: isMobile ? 280 : 400,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: AppTheme.darkAccent.withOpacity(0.5), width: 4),
+              image: const DecorationImage(
+                image: AssetImage(AppConstants.profileImageUrl),
+                fit: BoxFit.cover,
               ),
-            ],
-          ),
-        )
-            .animate(onPlay: (controller) => controller.repeat(reverse: true))
-            .moveY(begin: -10, end: 10, duration: 2.seconds, curve: Curves.easeInOut)
-            .animate() // Intro animation
-            .fadeIn(delay: 800.ms, duration: 800.ms)
-            .scale(begin: const Offset(0.8, 0.8)),
+              boxShadow: [
+                BoxShadow(
+                  color: AppTheme.darkAccent.withOpacity(0.15),
+                  blurRadius: 60,
+                  spreadRadius: 20,
+                ),
+              ],
+            ),
+          )
+              .animate(onPlay: (controller) => controller.repeat(reverse: true))
+              .moveY(begin: -10, end: 10, duration: 2.seconds, curve: Curves.easeInOut)
+              .animate() // Intro animation
+              .fadeIn(delay: 800.ms, duration: 800.ms)
+              .scale(begin: const Offset(0.8, 0.8)),
+        ),
       ),
     );
 
@@ -125,31 +129,35 @@ class HeroSection extends StatelessWidget {
   }
 
   Widget _buildCTAButton(BuildContext context, String label, VoidCallback onTap, {required bool isPrimary}) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-        decoration: BoxDecoration(
-          color: isPrimary ? AppTheme.darkAccent : Colors.transparent,
-          borderRadius: BorderRadius.circular(12),
-          border: isPrimary ? null : Border.all(color: AppTheme.darkAccent, width: 2),
-          boxShadow: [
-            if (isPrimary)
-              BoxShadow(
-                color: AppTheme.darkAccent.withOpacity(0.3),
-                blurRadius: 15,
-                offset: const Offset(0, 5),
-              ),
-          ],
-        ),
-        child: Text(
-          label,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.2,
-            color: isPrimary ? Colors.black : AppTheme.darkTextPrimary,
+    return Semantics(
+      button: true,
+      label: "Tombol: $label",
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+          decoration: BoxDecoration(
+            color: isPrimary ? AppTheme.darkAccent : Colors.transparent,
+            borderRadius: BorderRadius.circular(12),
+            border: isPrimary ? null : Border.all(color: AppTheme.darkAccent, width: 2),
+            boxShadow: [
+              if (isPrimary)
+                BoxShadow(
+                  color: AppTheme.darkAccent.withOpacity(0.3),
+                  blurRadius: 15,
+                  offset: const Offset(0, 5),
+                ),
+            ],
+          ),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1.2,
+              color: isPrimary ? Colors.black : AppTheme.darkTextPrimary,
+            ),
           ),
         ),
       ),

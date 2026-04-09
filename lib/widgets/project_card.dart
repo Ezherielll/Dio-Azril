@@ -51,11 +51,15 @@ class _ProjectCardState extends State<ProjectCard> {
               Expanded(
                 child: Stack(
                   children: [
-                    Image.asset(
-                      widget.project.imageUrl,
-                      width: double.infinity,
-                      height: double.infinity,
-                      fit: BoxFit.cover,
+                    Semantics(
+                      label: "Gambar Proyek: ${widget.project.title}",
+                      image: true,
+                      child: Image.asset(
+                        widget.project.imageUrl,
+                        width: double.infinity,
+                        height: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
@@ -66,9 +70,9 @@ class _ProjectCardState extends State<ProjectCard> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   if (widget.project.githubUrl != null)
-                                    _buildIconButton(Icons.code, widget.project.githubUrl!),
+                                    _buildIconButton(Icons.code, widget.project.githubUrl!, "GitHub"),
                                   if (widget.project.liveUrl != null)
-                                    _buildIconButton(Icons.launch, widget.project.liveUrl!),
+                                    _buildIconButton(Icons.launch, widget.project.liveUrl!, "Live Demo"),
                                 ],
                               ),
                             ).animate().fadeIn().scale()
@@ -117,18 +121,22 @@ class _ProjectCardState extends State<ProjectCard> {
     ).animate().fadeIn(duration: 400.ms).slideY(begin: 0.1);
   }
 
-  Widget _buildIconButton(IconData icon, String url) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-        color: AppTheme.darkAccent,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: IconButton(
-        icon: Icon(icon, color: Colors.black, size: 24),
-        onPressed: () {},
-      ),
-    ).animate().fadeIn(duration: 200.ms).scale();
+  Widget _buildIconButton(IconData icon, String url, String label) {
+    return Semantics(
+      button: true,
+      label: "Buka $label Proyek",
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        decoration: BoxDecoration(
+          color: AppTheme.darkAccent,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: IconButton(
+          icon: Icon(icon, color: Colors.black, size: 24),
+          onPressed: () {},
+        ),
+      ).animate().fadeIn(duration: 200.ms).scale(),
+    );
   }
 
   Widget _buildTechTag(String label) {
