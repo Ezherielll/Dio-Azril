@@ -50,9 +50,9 @@ class AboutSection extends StatelessWidget {
         Text(
           "ABOUT ME",
           style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                color: AppTheme.darkAccent,
-                letterSpacing: 2,
-              ),
+            color: AppTheme.darkAccent,
+            letterSpacing: 2,
+          ),
         ),
         Container(
           margin: const EdgeInsets.only(top: 8),
@@ -71,9 +71,9 @@ class AboutSection extends StatelessWidget {
         Text(
           AppConstants.bio,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                height: 1.8,
-                color: AppTheme.darkTextPrimary.withOpacity(0.8),
-              ),
+            height: 1.8,
+            color: AppTheme.darkTextPrimary.withValues(),
+          ),
         ),
       ],
     ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.1);
@@ -86,16 +86,18 @@ class AboutSection extends StatelessWidget {
         Text(
           "SKILLS & TECH",
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontWeight: FontWeight.bold,
-                letterSpacing: 2,
-                color: AppTheme.darkTextMuted,
-              ),
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2,
+            color: AppTheme.darkTextMuted,
+          ),
         ),
         const SizedBox(height: 20),
         Wrap(
           spacing: 12,
           runSpacing: 12,
-          children: AppConstants.skills.map((skill) => _buildSkillChip(context, skill)).toList(),
+          children: AppConstants.skills
+              .map((skill) => _buildSkillChip(context, skill))
+              .toList(),
         ),
       ],
     ).animate().fadeIn(delay: 400.ms).slideY(begin: 0.1);
@@ -107,14 +109,14 @@ class AboutSection extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppTheme.darkSurface,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppTheme.darkAccent.withOpacity(0.3)),
+        border: Border.all(color: AppTheme.darkAccent.withValues(alpha: 0.3)),
       ),
       child: Text(
         label,
         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: AppTheme.darkTextPrimary,
-              fontWeight: FontWeight.w500,
-            ),
+          color: AppTheme.darkTextPrimary,
+          fontWeight: FontWeight.w500,
+        ),
       ),
     );
   }

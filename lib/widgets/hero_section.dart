@@ -102,14 +102,14 @@ class HeroSection extends StatelessWidget {
             height: isMobile ? 280 : 400,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: AppTheme.darkAccent.withOpacity(0.5), width: 4),
+              border: Border.all(color: AppTheme.darkAccent.withValues(alpha: 0.5), width: 4),
               image: const DecorationImage(
                 image: AssetImage(AppConstants.profileImageUrl),
                 fit: BoxFit.cover,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: AppTheme.darkAccent.withOpacity(0.15),
+                  color: AppTheme.darkAccent.withValues(alpha: 0.15),
                   blurRadius: 60,
                   spreadRadius: 20,
                 ),
@@ -145,7 +145,7 @@ class HeroSection extends StatelessWidget {
             boxShadow: [
               if (isPrimary)
                 BoxShadow(
-                  color: AppTheme.darkAccent.withOpacity(0.3),
+                  color: AppTheme.darkAccent.withValues(alpha: 0.3),
                   blurRadius: 15,
                   offset: const Offset(0, 5),
                 ),

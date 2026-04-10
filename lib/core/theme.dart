@@ -22,10 +22,8 @@ class AppTheme {
       brightness: Brightness.dark,
       scaffoldBackgroundColor: darkBackground,
       colorScheme: const ColorScheme.dark(
-        background: darkBackground,
         surface: darkSurface,
         primary: darkAccent,
-        onBackground: darkTextPrimary,
         onSurface: darkTextPrimary,
       ),
       textTheme: GoogleFonts.interTextTheme().copyWith(
@@ -44,18 +42,9 @@ class AppTheme {
           fontWeight: FontWeight.bold,
           color: darkTextPrimary,
         ),
-        bodyLarge: GoogleFonts.inter(
-          fontSize: 18,
-          color: darkTextPrimary,
-        ),
-        bodyMedium: GoogleFonts.inter(
-          fontSize: 16,
-          color: darkTextPrimary,
-        ),
-        bodySmall: GoogleFonts.inter(
-          fontSize: 14,
-          color: darkTextMuted,
-        ),
+        bodyLarge: GoogleFonts.inter(fontSize: 18, color: darkTextPrimary),
+        bodyMedium: GoogleFonts.inter(fontSize: 16, color: darkTextPrimary),
+        bodySmall: GoogleFonts.inter(fontSize: 14, color: darkTextMuted),
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
@@ -71,10 +60,8 @@ class AppTheme {
       brightness: Brightness.light,
       scaffoldBackgroundColor: lightBackground,
       colorScheme: const ColorScheme.light(
-        background: lightBackground,
         surface: lightSurface,
         primary: lightAccent,
-        onBackground: lightTextPrimary,
         onSurface: lightTextPrimary,
       ),
       textTheme: GoogleFonts.interTextTheme().copyWith(
@@ -93,18 +80,9 @@ class AppTheme {
           fontWeight: FontWeight.bold,
           color: lightTextPrimary,
         ),
-        bodyLarge: GoogleFonts.inter(
-          fontSize: 18,
-          color: lightTextPrimary,
-        ),
-        bodyMedium: GoogleFonts.inter(
-          fontSize: 16,
-          color: lightTextPrimary,
-        ),
-        bodySmall: GoogleFonts.inter(
-          fontSize: 14,
-          color: lightTextMuted,
-        ),
+        bodyLarge: GoogleFonts.inter(fontSize: 18, color: lightTextPrimary),
+        bodyMedium: GoogleFonts.inter(fontSize: 16, color: lightTextPrimary),
+        bodySmall: GoogleFonts.inter(fontSize: 14, color: lightTextMuted),
       ),
     );
   }

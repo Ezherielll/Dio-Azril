@@ -65,7 +65,7 @@ class ExperienceSection extends StatelessWidget {
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: AppTheme.darkAccent.withOpacity(0.5),
+                        color: AppTheme.darkAccent.withValues(alpha: 0.5),
                         blurRadius: 10,
                       ),
                     ],
@@ -74,7 +74,7 @@ class ExperienceSection extends StatelessWidget {
                 Expanded(
                   child: Container(
                     width: 2,
-                    color: AppTheme.darkAccent.withOpacity(0.3),
+                    color: AppTheme.darkAccent.withValues(alpha: 0.3),
                   ),
                 ),
               ],
@@ -112,7 +112,7 @@ class ExperienceSection extends StatelessWidget {
                     exp.description,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           height: 1.6,
-                          color: AppTheme.darkTextPrimary.withOpacity(0.7),
+                          color: AppTheme.darkTextPrimary.withValues(alpha: 0.7),
                         ),
                   ),
                 ],

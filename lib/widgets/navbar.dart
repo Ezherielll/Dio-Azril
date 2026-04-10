@@ -16,7 +16,7 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       toolbarHeight: 80,
-      backgroundColor: AppTheme.darkBackground.withOpacity(0.8),
+      backgroundColor: AppTheme.darkBackground.withValues(alpha: 0.8),
       surfaceTintColor: Colors.transparent,
       title: Semantics(
         label: "Logo: Azril Personal Portfolio",

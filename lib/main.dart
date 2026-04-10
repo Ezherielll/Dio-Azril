@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Azril | Personal Portfolio',
+      title: 'Dio Azril',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
       home: const HomePage(),
@@ -35,7 +35,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
-  
+
   // Section keys for scrolling
   final List<GlobalKey> _sectionKeys = List.generate(5, (index) => GlobalKey());
 
@@ -63,34 +63,23 @@ class _HomePageState extends State<HomePage> {
             Container(
               key: _sectionKeys[0],
               child: HeroSection(
-                onPortfolioTap: () => _scrollToSection(3), // Index 3 is Portfolio
-                onContactTap: () => _scrollToSection(4),   // Index 4 is Contact
+                onPortfolioTap: () =>
+                    _scrollToSection(3), // Index 3 is Portfolio
+                onContactTap: () => _scrollToSection(4), // Index 4 is Contact
               ),
             ),
-            
+
             // ABOUT SECTION (Index 1)
-            Container(
-              key: _sectionKeys[1],
-              child: const AboutSection(),
-            ),
+            Container(key: _sectionKeys[1], child: const AboutSection()),
 
             // EXPERIENCE SECTION (Index 2)
-            Container(
-              key: _sectionKeys[2],
-              child: const ExperienceSection(),
-            ),
+            Container(key: _sectionKeys[2], child: const ExperienceSection()),
 
             // PORTFOLIO SECTION (Index 3)
-            Container(
-              key: _sectionKeys[3],
-              child: const PortfolioSection(),
-            ),
+            Container(key: _sectionKeys[3], child: const PortfolioSection()),
 
             // CONTACT SECTION (Index 4)
-            Container(
-              key: _sectionKeys[4],
-              child: const ContactSection(),
-            ),
+            Container(key: _sectionKeys[4], child: const ContactSection()),
 
             // FOOTER
             const Footer(),

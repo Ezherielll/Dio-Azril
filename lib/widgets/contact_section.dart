@@ -24,7 +24,9 @@ class _ContactSectionState extends State<ContactSection> {
           backgroundColor: AppTheme.darkSurface,
           title: Text(
             "Pesan Terkirim!",
-            style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 24),
+            style: Theme.of(
+              context,
+            ).textTheme.displaySmall?.copyWith(fontSize: 24),
           ),
           content: Text(
             "Terima kasih telah menghubungi saya, ${_nameController.text}. Saya akan merespons sesegera mungkin.",
@@ -38,7 +40,10 @@ class _ContactSectionState extends State<ContactSection> {
                 _emailController.clear();
                 _messageController.clear();
               },
-              child: const Text("OK", style: TextStyle(color: AppTheme.darkAccent)),
+              child: const Text(
+                "OK",
+                style: TextStyle(color: AppTheme.darkAccent),
+              ),
             ),
           ],
         ),
@@ -92,9 +97,9 @@ class _ContactSectionState extends State<ContactSection> {
           Text(
             "GET IN TOUCH",
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                  color: AppTheme.darkAccent,
-                  letterSpacing: 2,
-                ),
+              color: AppTheme.darkAccent,
+              letterSpacing: 2,
+            ),
           ),
           Container(
             margin: const EdgeInsets.only(top: 8),
@@ -116,14 +121,17 @@ class _ContactSectionState extends State<ContactSection> {
             context,
             controller: _nameController,
             label: "Nama",
-            validator: (v) => v?.isEmpty ?? true ? "Nama tidak boleh kosong" : null,
+            validator: (v) =>
+                v?.isEmpty ?? true ? "Nama tidak boleh kosong" : null,
           ),
           const SizedBox(height: 20),
           _buildTextField(
             context,
             controller: _emailController,
             label: "Email",
-            validator: (v) => ((v?.isEmpty ?? true) || !v!.contains('@')) ? "Email tidak valid" : null,
+            validator: (v) => ((v?.isEmpty ?? true) || !v!.contains('@'))
+                ? "Email tidak valid"
+                : null,
           ),
           const SizedBox(height: 20),
           _buildTextField(
@@ -131,7 +139,8 @@ class _ContactSectionState extends State<ContactSection> {
             controller: _messageController,
             label: "Pesan",
             maxLines: 5,
-            validator: (v) => v?.isEmpty ?? true ? "Pesan tidak boleh kosong" : null,
+            validator: (v) =>
+                v?.isEmpty ?? true ? "Pesan tidak boleh kosong" : null,
           ),
           const SizedBox(height: 30),
           SizedBox(
@@ -145,11 +154,16 @@ class _ContactSectionState extends State<ContactSection> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.darkAccent,
                   foregroundColor: Colors.black,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
                 child: const Text(
                   "KIRIM PESAN",
-                  style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1,
+                  ),
                 ),
               ),
             ),
@@ -182,7 +196,9 @@ class _ContactSectionState extends State<ContactSection> {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: AppTheme.darkAccent.withOpacity(0.1)),
+          borderSide: BorderSide(
+            color: AppTheme.darkAccent.withValues(alpha: 0.1),
+          ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
@@ -200,15 +216,25 @@ class _ContactSectionState extends State<ContactSection> {
         Text(
           "HUBUNGI SAYA DI",
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontWeight: FontWeight.bold,
-                letterSpacing: 2,
-                color: AppTheme.darkTextMuted,
-              ),
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2,
+            color: AppTheme.darkTextMuted,
+          ),
         ),
         const SizedBox(height: 30),
-        _buildSocialItem(context, "Email", AppConstants.contactEmail, Icons.email_outlined),
+        _buildSocialItem(
+          context,
+          "Email",
+          AppConstants.contactEmail,
+          Icons.email_outlined,
+        ),
         _buildSocialItem(context, "GitHub", "Ezherielll", Icons.code_rounded),
-        _buildSocialItem(context, "LinkedIn", "Your Name", Icons.business_center_outlined),
+        _buildSocialItem(
+          context,
+          "LinkedIn",
+          "Your Name",
+          Icons.business_center_outlined,
+        ),
         const SizedBox(height: 40),
         Row(
           children: [
@@ -223,7 +249,12 @@ class _ContactSectionState extends State<ContactSection> {
     ).animate().fadeIn(delay: 200.ms).slideX(begin: 0.1);
   }
 
-  Widget _buildSocialItem(BuildContext context, String title, String value, IconData icon) {
+  Widget _buildSocialItem(
+    BuildContext context,
+    String title,
+    String value,
+    IconData icon,
+  ) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Row(
@@ -233,8 +264,20 @@ class _ContactSectionState extends State<ContactSection> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: const TextStyle(color: AppTheme.darkTextMuted, fontSize: 12)),
-              Text(value, style: const TextStyle(color: AppTheme.darkTextPrimary, fontWeight: FontWeight.bold)),
+              Text(
+                title,
+                style: const TextStyle(
+                  color: AppTheme.darkTextMuted,
+                  fontSize: 12,
+                ),
+              ),
+              Text(
+                value,
+                style: const TextStyle(
+                  color: AppTheme.darkTextPrimary,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         ],
@@ -251,7 +294,7 @@ class _ContactSectionState extends State<ContactSection> {
         decoration: BoxDecoration(
           color: AppTheme.darkSurface,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: AppTheme.darkAccent.withOpacity(0.2)),
+          border: Border.all(color: AppTheme.darkAccent.withValues(alpha: 0.2)),
         ),
         child: Icon(icon, color: AppTheme.darkAccent, size: 20),
       ),
