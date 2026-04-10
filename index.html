@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/Dio-Azril/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  
+  <title>Azril | Personal Portfolio & Flutter Developer</title>
+  <meta name="description" content="Personal portfolio of Azril, a professional Flutter Developer and Creative Thinker focusing on premium UI, Machine Learning, and Python.">
+  <meta name="keywords" content="Azril, Flutter Developer, Personal Portfolio, Mobile App Developer, Machine Learning, Python, UI/UX Design">
+  <meta name="author" content="Azril">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/Ezherielll">
+  <meta property="og:title" content="Azril | Personal Portfolio">
+  <meta property="og:description" content="Professional Flutter Developer focusing on premium UI, Machine Learning, and Python.">
+  <meta property="og:image" content="https://github.com/Ezherielll/Dio-Azril/raw/main/assets/images/profile.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Azril | Personal Portfolio">
+  <meta property="twitter:description" content="Professional Flutter Developer focusing on premium UI, Machine Learning, and Python.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Azril Portfolio">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      background-color: #171614;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .loader {
+      border: 4px solid #1C1B19;
+      border-top: 4px solid #4F98A3;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+    .loading-text {
+      margin-top: 20px;
+      color: #CDCCCA;
+      letter-spacing: 2px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-container" id="loading">
+    <div class="loader"></div>
+    <div class="loading-text">Loading My World...</div>
+  </div>
+
+  <script src="flutter_bootstrap.js" async></script>
+  
+  <script>
+    window.addEventListener('load', function() {
+      // Logic to hide the loader is handled by Flutter when it's ready, 
+      // but we can add a fallback or just let Flutter paint over it.
+    });
+  </script>
+</body>
+</html>
